@@ -38,6 +38,3 @@ npm version patch #or major, minor, patch
 
 git push --follow-tags
 ```
-
-## License
-The Chat Shop proprietary license
