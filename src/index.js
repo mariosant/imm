@@ -1,7 +1,7 @@
 import {cond, is, propEq, T} from 'ramda';
 
 export const createReducer = (...cases) =>
-	cond([...cases, [T, state => state]]);
+	cond([...cases, [T, (state = null) => state]]);
 
 export const when = cond([
 	[

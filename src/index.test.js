@@ -10,7 +10,7 @@ test('when actionType', () => {
 
 test('when action is undefined', () => {
 	const condition = when('TEST', () => 'test');
-	const state = cond([condition])(undefined, undefined);
+	const state = cond([condition])(true, {});
 
 	expect(state).toBe(undefined);
 });
@@ -36,4 +36,5 @@ test('createReducer', () => {
 		'another test',
 	);
 	expect(reducer(true, {type: 'WHATEVER'})).toBe(true);
+	expect(reducer(undefined, {type: 'WHATEVER'})).toBe(null);
 });
