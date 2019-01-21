@@ -9,6 +9,11 @@ $ cd imm
 $ yarn install
 ```
 
+## Installation
+```bash
+yarn add @mariosant/imm
+```
+
 ## Usage
 ```javascript
 import {createReducer, when} from 'imm';

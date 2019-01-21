@@ -1,5 +1,5 @@
 {
-  "name": "imm",
+  "name": "@mariosant/imm",
   "version": "0.1.0",
   "description": "Develop reducers easier",
   "main": "dist/index.js",

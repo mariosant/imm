@@ -16,6 +16,7 @@
 .netrwhist
 .node_repl_history
 .npm
+.npmrc
 .nyc_output
 .settings/
 .Spotlight-V100
