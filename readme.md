@@ -1,6 +1,6 @@
 # IMM
 
-Develop reducers withh ease
+Develop reducers with ease.
 
 ## Development
 ```bash

@@ -3,14 +3,24 @@ import {createReducer, when} from '.';
 
 test('when actionType', () => {
 	const condition = when('TEST', () => 'test');
-	const state = cond([condition])({type: 'TEST', payload: null});
+	const state = cond([condition])(undefined, {type: 'TEST', payload: null});
 
 	expect(state).toBe('test');
 });
 
+test('when action is undefined', () => {
+	const condition = when('TEST', () => 'test');
+	const state = cond([condition])(undefined, undefined);
+
+	expect(state).toBe(undefined);
+});
+
 test('when function', () => {
-	const condition = when(propEq('type', 'TEST'), () => 'test');
-	const state = cond([condition])({type: 'TEST', payload: null});
+	const condition = when(
+		(_, action) => propEq('type', 'TEST', action),
+		() => 'test',
+	);
+	const state = cond([condition])(undefined, {type: 'TEST', payload: null});
 
 	expect(state).toBe('test');
 });
@@ -21,7 +31,9 @@ test('createReducer', () => {
 		when('ANOTHER_TEST', () => 'another test'),
 	);
 
-	expect(reducer({type: 'TEST', payload: null})).toBe('test');
-	expect(reducer({type: 'ANOTHER_TEST', payload: null})).toBe('another test');
-	expect(reducer({type: 'WHATEVER'}, true)).toBe(true);
+	expect(reducer(undefined, {type: 'TEST', payload: null})).toBe('test');
+	expect(reducer(undefined, {type: 'ANOTHER_TEST', payload: null})).toBe(
+		'another test',
+	);
+	expect(reducer(true, {type: 'WHATEVER'})).toBe(true);
 });

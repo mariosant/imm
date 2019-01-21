@@ -1,12 +1,15 @@
 import {cond, is, propEq, T} from 'ramda';
 
 export const createReducer = (...cases) =>
-	cond([...cases, [T, (_, state) => state]]);
+	cond([...cases, [T, state => state]]);
 
 export const when = cond([
 	[
 		is(String),
-		(actionType, transformer) => [propEq('type', actionType), transformer],
+		(actionType, transformer) => [
+			(_, action = {}) => propEq('type', actionType, action),
+			transformer,
+		],
 	],
 	[is(Function), (predicate, transformer) => [predicate, transformer]],
 	[
