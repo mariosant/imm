@@ -26,4 +26,5 @@ const allowDotNotation = path =>
 	typeof path === 'string' ? path.split('.') : path;
 
 export const select = curry((path, transformer, state) =>
-	over(lensPath(allowDotNotation(path)), transformer, state));
+	over(lensPath(allowDotNotation(path)), transformer, state),
+);
