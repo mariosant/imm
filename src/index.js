@@ -1,4 +1,4 @@
-import {cond, is, propEq, T} from 'ramda';
+import {cond, is, lensPath, over, propEq, T} from 'ramda';
 
 export const createReducer = (...cases) =>
 	cond([...cases, [T, (state = null) => state]]);
@@ -21,3 +21,9 @@ export const when = cond([
 		},
 	],
 ]);
+
+const allowDotNotation = path =>
+	typeof path === 'string' ? path.split('.') : path;
+
+export const select = (path, transformer) =>
+	over(lensPath(allowDotNotation(path)), transformer);
