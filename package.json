@@ -10,20 +10,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "ramda": "^0.26.1"
+    "ramda": "^0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "babel-plugin-ramda": "^2.0.0",
+    "@babel/cli": "^7",
+    "@babel/core": "^7",
+    "@babel/preset-env": "^7",
+    "babel-jest": "^24",
+    "babel-plugin-ramda": "^2",
     "husky": "^1",
     "jest": "^24",
     "lint-staged": "^8",
-    "parcel-bundler": "^1.11.0",
-    "xo": "^0.24"
+    "parcel-bundler": "^1",
+    "xo": "^0"
   },
   "lint-staged": {
     "*": [
