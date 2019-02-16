@@ -1,11 +1,17 @@
 language: node_js
-
 node_js:
-  - "lts/*"
-  - "node"
-
+- lts/*
+- node
 cache: yarn
 install: yarn
 script:
-  - yarn xo
-  - yarn test
+- yarn xo
+- yarn test
+deploy:
+  provider: npm
+  email: mariosant@sent.com
+  api_key:
+    secure: VGFuKUYSHP7vSA8FZRr97Wz1n2YkNKjnAGNalYsbSSLz4O2l505ChBIzwhd+9a7SXMAkFOobVmEsAZDBuCg7rLdhbcxDNOHG53MoCdAt3sb/bK6A3ANFVYWlkcuB0b5zGIBlpJbVngdD89TBITUriFMHy/k7tfvEghpFzyztsgOSFkPZecXRvv7YOcizLSXTIJ57zyLspI/XLSusKUhRT6tURBgsZyZYUzU6otQWZVHHW0RwGpgS4/JwShonU2mlsq6vHeM/6Aw9m1DfmYnrWJIpFxJDKy8pyxzyrfKWKnkYpQ34Cd52wJ7S51qt+UZ/iH/pUg+Gw6X+J5ym1DvnJx6Y3VeH2kMvnTKleOeaPs8FRlBkYQscigLAYu5WXzxY7882fZUxkt1g8EhTwDmuKe6sw/WLTGAtODcSa1d7q3WgwadGGbVpykzXUFWHzebujHhjuIBpC0xPd7pk9b9td6U6+gWTJrVQovWyrSrtGQxN03NOOhoJz8bsu7YLIxkZHvtv/WbJYAvF9kNFtM93yaJir94bcc05rbzJHxknMNaEwaiwi7J7ji5IP0L3Ql3MScjE/Snuat1B1cyFaEhatEEvVDyVDb8/u1W75SxOVlFNRh00acRSh1n3R3vz3u55v6fcj6L2enLZc2fBPfaishyOtsYqr9bamaxEY3KKn9I=
+  on:
+    tags: true
+    repo: mariosant/imm
