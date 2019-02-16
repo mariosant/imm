@@ -1,5 +1,5 @@
 import {cond, propEq} from 'ramda';
-import {createReducer, when} from '.';
+import {createReducer, when, select} from '.';
 
 test('when actionType', () => {
 	const condition = when('TEST', () => 'test');
@@ -37,4 +37,43 @@ test('createReducer', () => {
 	);
 	expect(reducer(true, {type: 'WHATEVER'})).toBe(true);
 	expect(reducer(undefined, {type: 'WHATEVER'})).toBe(null);
+});
+
+test('select', () => {
+	const state = {
+		data: {
+			account: 'Marios',
+		},
+		something: 'whatever',
+	};
+
+	const transformer = select(
+		['data', 'account'],
+		account => `${account} touched`,
+	);
+
+	expect(transformer(state)).toEqual({
+		data: {
+			account: 'Marios touched',
+		},
+		something: 'whatever',
+	});
+});
+
+test('select dot notation', () => {
+	const state = {
+		data: {
+			account: 'Marios',
+		},
+		something: 'whatever',
+	};
+
+	const transformer = select('data.account', account => `${account} touched`);
+
+	expect(transformer(state)).toEqual({
+		data: {
+			account: 'Marios touched',
+		},
+		something: 'whatever',
+	});
 });

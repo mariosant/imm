@@ -39,10 +39,12 @@ const reducer = createReducer(
 
 or even better:
 ```javascript
-import {createReducer, when} from '@mariosant/imm';
+import {createReducer, when, select} from '@mariosant/imm';
 
-const setName = (state, {payload}) => ({...state, name: payload})
-const setEmail = (state, {payload}) => ({...state, email: payload})
+const setUserName = (state, {payload}) => select(['user', 'name'], _name => payload, state)
+
+// dot notation for paths work as well
+const setUserEmail = (state, {payload}) => select('user.email', _email => payload, state)
 
 const reducer = createReducer(
     when('SET_NAME', setName),
