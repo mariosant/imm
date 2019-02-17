@@ -1,4 +1,4 @@
-import {cond, curry, is, lensPath, over, propEq, T} from 'ramda';
+import {cond, curry, prop, is, lensPath, over, propEq, T} from 'ramda';
 
 export const createReducer = (...cases) =>
 	cond([...cases, [T, (state = null) => state]]);
@@ -8,6 +8,13 @@ export const when = cond([
 		is(String),
 		(actionType, transformer) => [
 			(_, action = {}) => propEq('type', actionType, action),
+			transformer,
+		],
+	],
+	[
+		prop('type'),
+		(actionFn, transformer) => [
+			(_, action = {}) => propEq('type', actionFn.type, action),
 			transformer,
 		],
 	],
@@ -28,3 +35,20 @@ const allowDotNotation = path =>
 export const select = curry((path, transformer, state) =>
 	over(lensPath(allowDotNotation(path)), transformer, state),
 );
+
+export const createAction = actionType => {
+	const fn = value =>
+		is(Error, value)
+			? {
+					type: actionType,
+					error: value,
+			  }
+			: {
+					type: actionType,
+					payload: value,
+			  };
+
+	fn.type = actionType;
+
+	return fn;
+};
