@@ -25,18 +25,6 @@ test('when function', () => {
 	expect(state).toBe('test');
 });
 
-test('when function from action creator', () => {
-	const increment = createAction('INCREMENT');
-	const condition = when(increment, () => 'test');
-
-	const state = cond([condition])(undefined, {
-		type: 'INCREMENT',
-		payload: null,
-	});
-
-	expect(state).toBe('test');
-});
-
 test('createReducer', () => {
 	const reducer = createReducer(
 		when('TEST', () => 'test'),
