@@ -1,4 +1,4 @@
-import {cond, propEq} from 'ramda';
+import {cond} from 'ramda';
 import {createAction, createReducer, select, when} from '.';
 
 test('when actionType', () => {
@@ -15,12 +15,10 @@ test('when action is undefined', () => {
 	expect(state).toBe(undefined);
 });
 
-test('when function', () => {
-	const condition = when(
-		(_, action) => propEq('type', 'TEST', action),
-		() => 'test',
-	);
-	const state = cond([condition])(undefined, {type: 'TEST', payload: null});
+test('when action is passed', () => {
+	const test = createAction('TEST');
+	const condition = when(test, () => 'test');
+	const state = cond([condition])(undefined, test());
 
 	expect(state).toBe('test');
 });

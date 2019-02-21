@@ -1,4 +1,4 @@
-import {cond, curry, is, lensPath, over, propEq, T} from 'ramda';
+import {cond, curry, is, lensPath, over, prop, propEq, T} from 'ramda';
 
 export const createReducer = (...cases) =>
 	cond([...cases, [T, (state = null) => state]]);
@@ -11,12 +11,18 @@ export const when = cond([
 			transformer,
 		],
 	],
-	[is(Function), (predicate, transformer) => [predicate, transformer]],
+	[
+		prop('type'),
+		(action, transformer) => [
+			() => propEq('type', action.type, action),
+			transformer,
+		],
+	],
 	[
 		T,
 		() => {
 			throw new Error(
-				'The predicate can be the action type or a predicate function.',
+				'The predicate can be the action type or an action creator.',
 			);
 		},
 	],
@@ -29,13 +35,17 @@ export const select = curry((path, transformer, state) =>
 	over(lensPath(allowDotNotation(path)), transformer, state),
 );
 
-export const createAction = actionType => value =>
-	is(Error, value)
-		? {
-				type: actionType,
-				error: value,
-		  }
-		: {
-				type: actionType,
-				payload: value,
-		  };
+export const createAction = actionType =>
+	Object.assign(
+		value =>
+			is(Error, value)
+				? {
+						type: actionType,
+						error: value,
+				  }
+				: {
+						type: actionType,
+						payload: value,
+				  },
+		{type: actionType},
+	);
