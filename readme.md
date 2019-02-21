@@ -40,20 +40,24 @@ const reducer = createReducer(
 
 or even better:
 ```javascript
-import {createReducer, when, select} from '@mariosant/imm';
+import {createAction, createReducer, when, select} from '@mariosant/imm';
+const SET_NAME = 'SET_NAME'
+const SET_EMAIL = 'SET_EMAIL'
 
+const setUserNameAction = createAction(SET_NAME)
 const setUserName = (state, {payload}) => select(['user', 'name'], _name => payload, state)
 
 // dot notation for paths work as well
+const setUserEmailAction = createAction(SET_EMAIL)
 const setUserEmail = (state, {payload}) => select('user.email', _email => payload, state)
 
 const reducer = createReducer(
-    when('SET_NAME', setName),
-    when('SET_EMAIL', setEmail),
+    when(SET_NAME, setUserName),
+    when(SET_EMAIL, setUserEmail),
 )
 ```
 
-The first argument passed to `when`, can be a `String` or a `Function`. If it is a `String`, it compares it with the `type` of your dispatched action. If it is a function, it uses it as a predicate, which if it returns `true`, it executes the associated transfomer.
+The first argument passed to `when`, can be a `String` or a `Function`. If it is a `String`, it compares it with the `type` of your dispatched action. If it is a simple function, it uses it as a predicate, which if it returns `true`, it executes the associated transfomer.
 
 Here is an example.
 ```javascript
@@ -62,9 +66,10 @@ import {propEq} from 'ramda';
 
 const setName = (state, {payload}) => ({...state, name: payload})
 const setEmail = (state, {payload}) => ({...state, email: payload})
+const setAge = (state, {payload}) => ({...state, age: payload})
 
 const reducer = createReducer(
-    when(propEq('type', 'SET_NAME'), setName),
+    when('SET_NAME', setName),
     when(propEq('type', 'SET_EMAIL'), setEmail),
 )
 ```

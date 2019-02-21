@@ -28,3 +28,14 @@ const allowDotNotation = path =>
 export const select = curry((path, transformer, state) =>
 	over(lensPath(allowDotNotation(path)), transformer, state),
 );
+
+export const createAction = actionType => value =>
+	is(Error, value)
+		? {
+				type: actionType,
+				error: value,
+		  }
+		: {
+				type: actionType,
+				payload: value,
+		  };
