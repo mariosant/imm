@@ -82,6 +82,8 @@ test('action creator', () => {
 	expect(increment(2)).toEqual({
 		type: 'INCREMENT',
 		payload: 2,
+		meta: undefined,
+		error: false,
 	});
 });
 
@@ -91,6 +93,8 @@ test('action creator undefined', () => {
 	expect(increment()).toEqual({
 		type: 'INCREMENT',
 		payload: undefined,
+		meta: undefined,
+		error: false,
 	});
 });
 
@@ -100,6 +104,8 @@ test('action creator error', () => {
 
 	expect(increment(error)).toEqual({
 		type: 'INCREMENT',
-		error,
+		payload: error,
+		error: true,
+		meta: undefined,
 	});
 });
