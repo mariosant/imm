@@ -1,6 +1,14 @@
 import {cond, is, prop, propEq, T} from 'ramda';
 
-export default cond([
+/**
+ * Returns predicates to be used with `createReducer`.
+ *
+ * @sig (*... => Boolean, *... -> any)
+ * @returns [{Function}, {Function}]
+ * @example
+ * when('SET_NAME', (state, action) => ({...state, name: action.payload}));
+ */
+const when = cond([
 	[
 		is(String),
 		(actionType, transformer) => [
@@ -24,3 +32,5 @@ export default cond([
 		},
 	],
 ]);
+
+export default when;

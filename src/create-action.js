@@ -1,6 +1,15 @@
 import {is} from 'ramda';
 
-export default actionType =>
+/**
+ * Creates an action creator function.
+ * @sig String -> (any, any) -> {k: v}
+ * @params {String} actionType
+ * @returns {Function} A new function that creates an FSA compliant action
+ * @example
+ * const setEmail = createAction('SET_EMAIL');
+ * dispatch(setEmail('marios@sent.com'));
+ */
+const createAction = actionType =>
 	Object.assign(
 		(value, meta) => ({
 			meta,
@@ -10,3 +19,5 @@ export default actionType =>
 		}),
 		{type: actionType},
 	);
+
+export default createAction;
