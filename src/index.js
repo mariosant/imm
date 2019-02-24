@@ -37,15 +37,11 @@ export const select = curry((path, transformer, state) =>
 
 export const createAction = actionType =>
 	Object.assign(
-		value =>
-			is(Error, value)
-				? {
-						type: actionType,
-						error: value,
-				  }
-				: {
-						type: actionType,
-						payload: value,
-				  },
+		(value, meta) => ({
+			meta,
+			type: actionType,
+			payload: value,
+			error: is(Error, value),
+		}),
 		{type: actionType},
 	);
