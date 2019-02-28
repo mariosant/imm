@@ -1,12 +1,13 @@
 {
   "name": "@mariosant/imm",
-  "version": "0.6.0",
+  "version": "0.0.0-development",
   "description": "Develop reducers easier",
   "main": "dist/index.js",
   "scripts": {
     "lint": "xo",
     "test": "jest",
-    "build": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps"
+    "build": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps",
+    "semantic-release": "semantic-release"
   },
   "license": "MIT",
   "dependencies": {
@@ -22,6 +23,7 @@
     "jest": "^24",
     "lint-staged": "^8",
     "parcel-bundler": "^1",
+    "semantic-release": "^15.13.3",
     "xo": "^0"
   },
   "lint-staged": {
@@ -46,5 +48,9 @@
       "pre-commit": "lint-staged",
       "pre-push": "yarn test"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariosant/imm.git"
   }
 }
