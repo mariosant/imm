@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7",
     "babel-jest": "^24",
     "babel-plugin-ramda": "^2",
+    "documentation": "^9.2.0",
     "husky": "^1",
     "jest": "^24",
     "lint-staged": "^8",
