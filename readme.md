@@ -4,6 +4,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/@mariosant/imm.svg)](https://www.npmjs.com/package/@mariosant/imm)
 [![Build Status](https://travis-ci.org/mariosant/imm.svg?branch=master)](https://travis-ci.org/mariosant/imm)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 Imm is a set of tools to help you simplify your reducers. It works with all flux-style architectures, including Redux, Recompose's `withReducer` and React's `useReducer` hook.
 
@@ -102,6 +103,6 @@ Distributed under the MIT license.
 
 1. Fork it (<https://github.com/mariosant/imm/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
+3. Commit your changes using a semantic commit message. I include a `yarn commit` script to help you out.
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
