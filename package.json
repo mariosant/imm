@@ -1,65 +1,53 @@
 {
-  "name": "@mariosant/imm",
-  "version": "0.0.0-development",
-  "description": "Develop reducers easier",
-  "main": "dist/index.js",
-  "scripts": {
-    "lint": "xo",
-    "test": "jest",
-    "build": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps",
-    "semantic-release": "semantic-release",
-    "commit": "git-cz"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "ramda": "^0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7",
-    "@babel/core": "^7",
-    "@babel/preset-env": "^7",
-    "babel-jest": "^24",
-    "babel-plugin-ramda": "^2",
-    "commitizen": "^3.0.7",
-    "cz-conventional-changelog": "^2.1.0",
-    "documentation": "^9.2.0",
-    "husky": "^1",
-    "jest": "^24",
-    "lint-staged": "^8",
-    "parcel-bundler": "^1",
-    "semantic-release": "^15.13.3",
-    "xo": "^0"
-  },
-  "lint-staged": {
-    "*": [
-      "xo --fix",
-      "git add"
-    ]
-  },
-  "xo": {
-    "prettier": true,
-    "envs": [
-      "jest",
-      "node",
-      "browser"
-    ],
-    "rules": {
-      "camelcase": 1
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mariosant/imm.git"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+	"name": "@mariosant/imm",
+	"version": "0.6.2",
+	"description": "Develop reducers easier",
+	"main": "dist/index.js",
+	"scripts": {
+		"lint": "xo",
+		"test": "jest",
+		"build": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"ramda": "^0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7",
+		"@babel/core": "^7",
+		"@babel/preset-env": "^7",
+		"babel-jest": "^24",
+		"babel-plugin-ramda": "^2",
+		"commitizen": "^3.0.7",
+		"documentation": "^9.2.0",
+		"husky": "^1",
+		"jest": "^24",
+		"lint-staged": "^8",
+		"parcel-bundler": "^1",
+		"semantic-release": "^15.13.3",
+		"xo": "^0"
+	},
+	"lint-staged": {
+		"*": [
+			"xo --fix",
+			"git add"
+		]
+	},
+	"xo": {
+		"prettier": true,
+		"envs": [
+			"jest",
+			"node",
+			"browser"
+		],
+		"rules": {
+			"camelcase": 1
+		}
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"pre-push": "yarn test"
+		}
+	}
 }
