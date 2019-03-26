@@ -8,6 +8,7 @@ script:
   - yarn test
   - yarn build
 deploy:
+  skip_cleanup: true
   provider: npm
   email: mariosant@sent.com
   api_key:
