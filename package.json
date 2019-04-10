@@ -1,6 +1,6 @@
 {
 	"name": "@mariosant/imm",
-	"version": "0.6.8",
+	"version": "0.6.9",
 	"description": "Develop reducers easier",
 	"main": "dist/index.js",
 	"scripts": {
