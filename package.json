@@ -19,7 +19,7 @@
 		"babel-jest": "^24",
 		"babel-plugin-ramda": "^2",
 		"commitizen": "^3.0.7",
-		"documentation": "^9.2.0",
+		"documentation": "^10.0.0",
 		"husky": "^1",
 		"jest": "^24",
 		"parcel-bundler": "^1",
