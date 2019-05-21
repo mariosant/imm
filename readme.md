@@ -3,7 +3,7 @@
 > Write better reducers!
 
 [![NPM version](https://img.shields.io/npm/v/@mariosant/imm.svg)](https://www.npmjs.com/package/@mariosant/imm)
-[![Build Status](https://travis-ci.org/mariosant/imm.svg?branch=master)](https://travis-ci.org/mariosant/imm)
+[![CircleCI](https://circleci.com/gh/mariosant/imm/tree/master.svg?style=svg)](https://circleci.com/gh/mariosant/imm/tree/master)
 
 Imm is a set of tools to help you simplify your reducers. It works with all flux-style architectures, including Redux, Recompose's `withReducer` and React's `useReducer` hook.
 

@@ -4,6 +4,7 @@
 	"description": "Develop reducers easier",
 	"main": "dist/index.js",
 	"scripts": {
+		"lint": "xo",
 		"test": "jest",
 		"build": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps",
 		"release": "standard-version"
