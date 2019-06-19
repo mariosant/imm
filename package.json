@@ -19,8 +19,6 @@
 		"@babel/preset-env": "^7",
 		"babel-jest": "^24",
 		"babel-plugin-ramda": "^2",
-		"commitizen": "^3.0.7",
-		"documentation": "^11.0.0",
 		"husky": "^2",
 		"jest": "^24",
 		"parcel-bundler": "^1",
