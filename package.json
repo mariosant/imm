@@ -6,7 +6,7 @@
 	"scripts": {
 		"lint": "xo",
 		"test": "jest",
-		"build": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps",
+		"prepublish": "parcel build src/index.js --experimental-scope-hoisting --no-source-maps",
 		"release": "standard-version"
 	},
 	"license": "MIT",
