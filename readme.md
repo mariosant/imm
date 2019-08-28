@@ -34,10 +34,12 @@ Using imm is pretty straightforward and simple. All it requires, is to dispatch 
 ```javascript
 import { createReducer, when } from '@mariosant/imm';
 
-const reducer = createReducer(
+const initialState = {};
+
+const reducer = createReducer([
 	when('SET_NAME', (state, { payload }) => ({ ...state, name: payload })),
 	when('SET_EMAIL', (state, { payload }) => ({ ...state, email: payload })),
-);
+], initialState);
 ```
 
 or even better:
@@ -46,6 +48,8 @@ or even better:
 import { createAction, createReducer, when, select } from '@mariosant/imm';
 const SET_NAME = 'SET_NAME';
 const SET_EMAIL = 'SET_EMAIL';
+
+const initialState = {};
 
 const setUserNameAction = createAction(SET_NAME);
 const setUserName = (state, { payload }) =>
@@ -56,10 +60,10 @@ const setUserEmailAction = createAction(SET_EMAIL);
 const setUserEmail = (state, { payload }) =>
 	select('user.email', _email => payload, state);
 
-const reducer = createReducer(
+const reducer = createReducer([
 	when(SET_NAME, setUserName),
 	when(SET_EMAIL, setUserEmail),
-);
+], initialState);
 ```
 
 The first argument passed to `when`, can be a `String` or a `Function`. If it is a `String`, it compares it with the `type` of your dispatched action. If it is an `actionCreator`, it uses it to get its type and executes the associated transfomer.
