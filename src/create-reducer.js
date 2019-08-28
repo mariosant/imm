@@ -1,5 +1,7 @@
 import {cond, T} from 'ramda';
 
+const isUndef = a => typeof a === 'undefined';
+
 /**
  * Create a reducer function that accepts multiple predicates and transformers.
  * The reducer created is smart enough to handle unknown action types by returning state unchanged.
@@ -11,7 +13,7 @@ import {cond, T} from 'ramda';
  *   when('SET_EMAIL', handleEmail)
  * );
  */
-const createReducer = (...cases) =>
-	cond([...cases, [T, (state = null) => state]]);
+const createReducer = (cases, initialState) =>
+	cond([[isUndef, () => initialState], ...cases, [T, state => state]]);
 
 export default createReducer;
