@@ -8772,6 +8772,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typescript@^3.0.0:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
+  integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
+
 uglify-js@^3.1.4:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.7.2.tgz#cb1a601e67536e9ed094a92dd1e333459643d3f9"
@@ -9164,9 +9169,9 @@ xml-name-validator@^3.0.0:
   integrity sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
 
 xo@^0:
-  version "0.27.1"
-  resolved "https://registry.yarnpkg.com/xo/-/xo-0.27.1.tgz#4cd2f70932e90abcb27080caf5b7338a5c9e081a"
-  integrity sha512-7OtSoqfL+LVOhhD3jUafBatxqXAaEfmD1Xtbmklq8SnTFK0ot0cJjRJiXzoKhRAUORY2DBDfPAxdmPj+hAZGoA==
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/xo/-/xo-0.27.2.tgz#861ddc46bb66f4ff583714e6d2552c8733c59316"
+  integrity sha512-vCkyHH/2tyQh1eplDDRMCAPfKA6fXnXiFkChOGLF/5FnOEe9e2qCydDZZrrKA+3Vd8xPsRdoAv/HTnmqa+Z71w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.21.0"
     "@typescript-eslint/parser" "^2.21.0"
@@ -9206,6 +9211,7 @@ xo@^0:
     semver "^7.1.3"
     slash "^3.0.0"
     to-absolute-glob "^2.0.2"
+    typescript "^3.0.0"
     update-notifier "^4.0.0"
 
 xtend@^4.0.0, xtend@~4.0.1:
