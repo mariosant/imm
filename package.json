@@ -20,7 +20,7 @@
 		"babel-jest": "^24",
 		"babel-plugin-ramda": "^2",
 		"husky": "^3",
-		"jest": "^24",
+		"jest": "^25",
 		"parcel-bundler": "^1",
 		"standard-version": "^7.0.0",
 		"xo": "^0"
